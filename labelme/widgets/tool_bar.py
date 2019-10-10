@@ -26,7 +26,8 @@ class ToolButton(QtWidgets.QToolButton):
 
     """ToolBar companion class which ensures all buttons have the same size."""
 
-    minSize = (60, 60)
+    """Since the word "segmentation" is too long, enlarge the size to make sure the all icons appear at the center"""
+    minSize = (90, 90)
 
     def minimumSizeHint(self):
         ms = super(ToolButton, self).minimumSizeHint()
@@ -34,3 +35,4 @@ class ToolButton(QtWidgets.QToolButton):
         w2, h2 = self.minSize
         self.minSize = max(w1, w2), max(h1, h2)
         return QtCore.QSize(*self.minSize)
+

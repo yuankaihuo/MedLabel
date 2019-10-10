@@ -352,14 +352,16 @@ class MainWindow(QtWidgets.QMainWindow):
             'Start drawing linestrip. Ctrl+LeftClick ends creation.',
             enabled=False,
         )
-        editMode = action('Edit Polygons', self.setEditMode,
+        """change the text from Edit Polygons to Edit Segmentations to avoid user's confusion """
+        editMode = action('Edit Segmentations', self.setEditMode,
                           shortcuts['edit_polygon'], 'edit',
                           'Move and edit the selected polygons', enabled=False)
 
         delete = action('Delete Polygons', self.deleteSelectedShape,
                         shortcuts['delete_polygon'], 'cancel',
                         'Delete the selected polygons', enabled=False)
-        copy = action('Duplicate Polygons', self.copySelectedShape,
+        """change the text from Duplicate Polygons to Duplicate Segmentations to avoid user's confusion """
+        copy = action('Duplicate Segmentations', self.copySelectedShape,
                       shortcuts['duplicate_polygon'], 'copy',
                       'Create a duplicate of the selected polygons',
                       enabled=False)
@@ -620,7 +622,8 @@ class MainWindow(QtWidgets.QMainWindow):
             save,
             deleteFile,
             None,
-            createMode,
+            createSegmentationMode,
+            #createMode,
             editMode,
             copy,
             delete,
